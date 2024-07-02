@@ -1,0 +1,8 @@
+<a  [routerLink]="['/characters',characters.id]">
+<mat-card appearance="outlined">
+  <img id="focus" mat-card-image width="auto" height="300" [src]="characters.thumbnail.path+'/portrait_fantastic'+'.' + characters.thumbnail.extension" alt="Photo of a Shiba Inu">
+</mat-card>
+<h3 class="pt-2 text-center font-bold" >{{characters.name | slice:0:24}}</h3>
+</a>
+
+

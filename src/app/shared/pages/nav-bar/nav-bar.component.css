@@ -1,0 +1,22 @@
+#menuTitle{
+  font-size: medium;
+  margin-right: 20px;
+}
+
+
+@media (min-width: 900px){
+  #menuIcon{
+    display: none;
+  }
+}
+
+@media (max-width: 900px){
+  .top-menu-item{
+    display: none;
+  }
+}
+
+.mat-toolbar{
+  height: 50px;
+}
+

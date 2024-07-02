@@ -1,1 +1,58 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif}
+
+body,mat-sidenav-content{
+  background-color: #ECECEC;
+  opacity: 1;
+  background-image:  repeating-radial-gradient( circle at 0 0, transparent 0, #ECECEC 40px ), repeating-linear-gradient( #e9e9e955, #e9e9e9 );
+}
+
+
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+
+}
+
+a{
+  text-decoration: none;
+  color: black;
+
+}
+
+
+
+#imageCover{
+  box-shadow: 13px 20px 20px rgba(0, 0, 0, 1);
+}
+
+#focus:hover{
+  border: rgb(97, 6, 6) 1px solid;
+  opacity: 0.7;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 1);
+  transform: translateY(-3%);
+}
+
+#focusPage:hover{
+  opacity: 0.97;
+  box-shadow: 20px 20px 20px rgba(0, 0, 0, 1);
+
+}
+
+#searchBox{
+ input{
+
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+
+ }
+ padding-bottom: 15px;
+}

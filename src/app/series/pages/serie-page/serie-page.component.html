@@ -1,0 +1,71 @@
+<ng-template #spinner>
+  <div class="flex align-items-center justify-content-center p-5">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
+
+
+    <img *ngIf="serie" id="zoom" class="w-full h-30rem" [src]="serie.thumbnail.path+'/landscape_incredible.'+serie.thumbnail.extension" [alt]="serie.title">
+
+
+<div id="divContent"  class="grid" *ngIf="serie && characterSerie;else spinner">
+  <div class="col-4 text-center">
+
+      <img id="imageCover" class="bg-center w-20rem h-25rem" [src]="serie.thumbnail | imagePath" [alt]="serie.title">
+
+  </div>
+  <div id="divCover" class="col text-center mx-5 max-h-10rem">
+    <h1  id="text" class="text-5xl text-bold">{{serie.title}}</h1>
+          <span id="text" >{{serie.type}}</span>
+      <span id="text" class="text-bold text-lg" >{{serie.description}}</span>
+  </div>
+</div>
+
+
+
+
+    <div class="grid mx-5" *ngIf="characterSerie.length > 1" >
+      <div class="col-12 max-w-full">
+        <h2 class="text-center">Personajes:</h2>
+        <swiper-container
+          pagination="false"
+          effect="coverflow"
+          grap-cursor="true"
+          centered-slides="true"
+          slides-per-view="auto"
+          coverflow-effect-rotate="0"
+          coverflow-effect-stretch="0"
+          coverflow-effect-depth="200"
+          coverflow-effect-modifier="1"
+          coverflow-effect-slides-shadows="false"
+        >
+          <swiper-slide
+            style="opacity: 1;"
+            class="w-20rem"
+            *ngFor="let character of characterSerie"
+          >
+          <a [routerLink]="['/characters',character.id]">
+            <img
+              id="focusPage"
+              class="w-full h-23rem"
+              [src]="character.thumbnail | imagePath"
+              [alt]="character.name"
+            />
+          </a>
+          </swiper-slide>
+        </swiper-container>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+

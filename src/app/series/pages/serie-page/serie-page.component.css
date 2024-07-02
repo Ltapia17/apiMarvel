@@ -1,0 +1,24 @@
+#zoom{
+  -webkit-filter: blur(5px); /* Safari 6.0 - 9.0 */
+  filter: blur(5px)  brightness(60%) ;
+  box-shadow: 1px 1px 1px 8px black ;
+
+}
+
+#text{
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+
+#divContent{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: 25px auto;
+}
+
+
+
+

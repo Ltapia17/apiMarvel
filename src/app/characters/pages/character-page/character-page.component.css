@@ -1,0 +1,26 @@
+.container{
+  display: grid;/* Crea columnas automáticas */
+  grid-gap: 50px;
+  list-style: none;
+  font-weight: 450;
+  font-size: 20px;
+
+}
+
+
+@media ( max-width: 570px){
+#contentImg{
+  padding: 10px;
+
+}
+#focus{
+  justify-content: center;
+  width: 300px;
+  height: 300px;
+}
+}
+
+
+#focusPageCharacter:hover{
+  opacity: 0.4;
+}

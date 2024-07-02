@@ -1,0 +1,19 @@
+<ng-template  #spinner>
+  <div class="flex align-items-center justify-content-center p-5">
+    <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+  </div>
+</ng-template>
+
+<div class="grid mx-4 pt-2" *ngIf="stories.length > 1 ;else spinner">
+  <div class="col-12 xl:col-6 md:col-6 sm:col-12" *ngFor="let storie of stories | paginate: { itemsPerPage: 4, currentPage: p }" >
+    <stories-card  [storie]="storie" ></stories-card>
+  </div>
+</div>
+
+
+<div *ngIf="stories.length > 1" class="flex justify-content-end">
+
+
+  <pagination-controls (pageBoundsCorrection)="p=$event-1"  previousLabel="Anterior" [autoHide]=true nextLabel="Siguiente"  [responsive]=true (pageChange)="p=$event" ></pagination-controls>
+
+</div>

@@ -1,0 +1,6 @@
+
+mat-card-title{
+  background-image: linear-gradient(to right, #383838 , #1F1C1C); /* Cambia el color a tu preferencia */
+  color: white;
+   /* Cambia el color del texto si es necesario */
+}

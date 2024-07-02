@@ -1,0 +1,38 @@
+<div  class="mx-5" >
+  <ng-template  #spinner>
+    <div *ngIf="charactersSearch.length < 1" class="flex align-items-center justify-content-center p-5">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>
+
+  <shared-search-box id="searchBox" (inputText)="searchCharacters($event)" *ngIf="characters.length > 1" class="flex flex-row-reverse pt-2" ></shared-search-box>
+
+
+  <div *ngIf="charactersSearch.length > 1" class="grid">
+    <div class="col-12 xl:2 md:col-6 lg:col-2" *ngFor="let character of charactersSearch | paginate: { itemsPerPage: 12, currentPage: p }">
+      <character-card-list
+
+        class="text-center"
+        [characters]="character"
+      ></character-card-list>
+    </div>
+  </div>
+
+
+  <div *ngIf="characters.length > 1 && charactersSearch.length < 1; else spinner" class="grid">
+    <div class="col-12 xl:2 md:col-6 lg:col-2" *ngFor="let character of characters | paginate: { itemsPerPage: 12, currentPage: p }">
+      <character-card-list
+        class="text-center"
+        [characters]="character"
+      ></character-card-list>
+    </div>
+  </div>
+
+  <div *ngIf="characters.length > 1" class="flex justify-content-end">
+
+
+    <pagination-controls (pageBoundsCorrection)="p=$event-1"  previousLabel="Anterior" [autoHide]=true nextLabel="Siguiente"  [responsive]=true (pageChange)="p=$event" ></pagination-controls>
+
+  </div>
+
+</div>

@@ -1,0 +1,12 @@
+::ng-deep .mat-mdc-paginator-container{
+  background-color: #3F51B5;
+  color: white;
+  border-radius:  30px;
+}
+
+::ng-deep .mat-mdc-paginator-range-actions {
+  background-color: #303F9F;
+  border-radius: 30px;
+}
+
+

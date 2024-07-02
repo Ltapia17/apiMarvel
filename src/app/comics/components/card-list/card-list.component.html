@@ -1,0 +1,6 @@
+<a  [routerLink]="['/comics',comic.id]">
+  <mat-card  appearance="outlined">
+    <img id="focus" mat-card-image width="auto" class="w-full" height="300" [src]="comic.thumbnail | imagePath " alt="Photo of a Shiba Inu">
+  </mat-card>
+  </a>
+  <h3 class="mt-2 text-center font-bold">{{comic.title |slice:0:24}}</h3>

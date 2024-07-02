@@ -1,0 +1,21 @@
+<!-- <div class="overflow-hidden">
+  <div class="flex">
+      <div class="flex-auto flex align-items-center justify-content-center bg-primary max-w-12rem mx-2 font-bold border-round">
+        <img class="max-w-full" [src]="storie.thumbnail | imagePath" alt="">
+      </div>
+      <div class="flex-auto bg-primary font-bold border-round">{{storie.description}}</div>
+  </div>
+</div> -->
+
+
+<div class="grid" id="cardStories">
+  <div class="xl:col-5 md:col-12 sm:col-12 justify-content-center text-center imageCss">
+    <img class="h-18rem w-15rem " id="imageCover" [src]="storie.thumbnail | imagePath" alt="">
+  </div>
+  <div class="col imageCss">
+    <h2 class="font-bold text-center textTitle" >{{storie.title}}</h2>
+    <p class="text-center" >{{storie.description}}</p>
+  </div>
+</div>
+
+

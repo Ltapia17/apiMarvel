@@ -1,0 +1,33 @@
+<div class="mx-5">
+  <ng-template  #spinner>
+    <div *ngIf="comics.length < 1" class="flex align-items-center justify-content-center p-5">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>
+
+
+  <shared-search-box *ngIf="comics.length > 1"  id="searchBox" (inputText)="getSearchComics($event)"  class="pt-2 flex justify-content-end" ></shared-search-box>
+
+
+    <div *ngIf="comicsSearchs.length > 1" class="grid text-center">
+      <div *ngFor="let comic of comicsSearchs | paginate: { itemsPerPage: 18, currentPage: p }  " class="xl:col-2 md:col-2 sm:col-6 xs:col-12 ">
+        <comics-card-list [comic]="comic"  ></comics-card-list>
+      </div>
+    </div>
+
+    <div *ngIf="comics.length > 1 && comicsSearchs.length < 1;else spinner" class="grid text-center">
+      <div *ngFor="let comic of comics | paginate: { itemsPerPage: 18, currentPage: p }  " class="xl:col-2 md:col-2 sm:col-6 xs:col-12 ">
+        <comics-card-list [comic]="comic"  ></comics-card-list>
+      </div>
+    </div>
+
+
+    <div class="col-12 flex justify-content-end">
+      <pagination-controls *ngIf="comics.length > 1"  previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+    </div>
+
+
+
+
+
+</div>

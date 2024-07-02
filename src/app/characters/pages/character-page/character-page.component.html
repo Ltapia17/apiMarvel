@@ -1,0 +1,60 @@
+<div class="mx-4">
+  <ng-template #spinner>
+    <div class="flex align-items-center justify-content-center p-5">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>
+
+  <div *ngIf="character && seriesList; else spinner" class="grid">
+    <div class="text-center lg:col-5 md:col-12 sm:col-12">
+      <h1 class="text-center  text-3xl font-bold pt-2">{{ character.name }}</h1>
+      <img
+      class="max-h-30rem max-w-25rem"
+      id="imageCover"
+        [src]="character.thumbnail | imagePath"
+        [alt]="character.name"/>
+    </div>
+    <div class="lg:col-7 md:col-12 sm:col-12">
+      <div >
+        <h3 class="bold pt-7 text-center line-height-1">{{ character.description }}</h3>
+
+        <mat-tab-group color="primary" class="h-30rem max-w-full sm:max-w-screen ">
+          <mat-tab label="Series">
+            <div class="grid">
+              <div id="contentImg" *ngFor="let serie of seriesList" class="md:col-4 lg:col-3 sm:col-12 flex justify-content-center">
+                  <a [routerLink]="['/series',serie.id]" >
+                <img id="focusPageCharacter" class="max-w-full min-h-full sm:w-20rem sm:h-15rem" [src]="serie.thumbnail.path+'.'+serie.thumbnail.extension" alt="">
+              </a>
+              </div>
+            </div>
+          </mat-tab>
+          <mat-tab label="Historia">
+            <ul class="container" *ngFor="let item of character.stories.items">
+              <li [ngStyle]="style">
+                {{ item.name }}
+              </li>
+            </ul>
+          </mat-tab>
+          <mat-tab label="Eventos">
+            <ul class="container" *ngFor="let item of character.events.items">
+              <li [ngStyle]="style">
+                {{ item.name }}
+              </li>
+            </ul>
+          </mat-tab>
+
+          <mat-tab label="Comics">
+            <div class="grid">
+              <div *ngFor="let comic of comicsList" class="text-center md:col-4 lg:col-3 xs:col-12">
+                  <a [routerLink]="['/comics',comic.id]" >
+                <img id="focusPageCharacter" class="max-w-full" [src]="comic.thumbnail.path+'.'+comic.thumbnail.extension" alt="">
+              </a>
+              </div>
+            </div>
+          </mat-tab>
+        </mat-tab-group>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,61 @@
+<ng-template #spinner> hola </ng-template>
+
+<div *ngIf="comic; else spinner" class="pt-5">
+  <div class="grid">
+    <div class="col flex justify-content-center">
+      <img
+        class="w-3 h-30rem"
+        id="imageCover"
+        [src]="comic.thumbnail | imagePath"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="text-center">
+    <h1 class="pt-5 font-bold">{{ comic.title }}</h1>
+
+    <span *ngIf="comic.creators.items.length > 1" class="text-base"
+      ><b>Autor:</b>: {{ comic.creators.items[1].name }}</span
+    >
+    <br />
+    <span *ngIf="comic.prices.length > 1" class="text-base">
+      <b>Precio:</b>: ${{ comic.prices[0].price }}</span
+    >
+  </div>
+  <br>
+
+  <mat-divider></mat-divider>
+
+  <div class="grid">
+    <div class="col w-full">
+      <h2 class="text-center">Personajes:</h2>
+      <swiper-container
+        pagination="false"
+        effect="coverflow"
+        grap-cursor="true"
+        centered-slides="true"
+        slides-per-view="auto"
+        coverflow-effect-rotate="0"
+        coverflow-effect-stretch="0"
+        coverflow-effect-depth="200"
+        coverflow-effect-modifier="1"
+        coverflow-effect-slides-shadows="false"
+      >
+        <swiper-slide
+          style="opacity: 1;"
+          class="w-20rem"
+          *ngFor="let comic of comicCharacters"
+        >
+        <a [routerLink]="['/characters',comic.id]">
+          <img
+            id="imageCover"
+            class="w-full h-23rem"
+            [src]="comic.thumbnail | imagePath"
+            [alt]="comic.name"
+          />
+        </a>
+        </swiper-slide>
+      </swiper-container>
+    </div>
+  </div>
+</div>

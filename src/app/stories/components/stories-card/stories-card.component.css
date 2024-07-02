@@ -1,0 +1,11 @@
+@media (max-width:575px){
+  #cardStories{
+    padding-top: 5px;
+    .imageCss{
+      width: 100%;
+    };
+    .textTitle{
+      padding-top: 12px;
+    }
+  }
+}

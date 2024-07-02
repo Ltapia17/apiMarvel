@@ -1,0 +1,33 @@
+<div class="mx-5" >
+
+  <ng-template  #spinner>
+    <div *ngIf="seriesByName.length < 1" class="flex align-items-center justify-content-center p-5">
+      <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+    </div>
+  </ng-template>
+
+  <shared-search-box (inputText)="searchSerieByName($event)"  class="pt-2 flex justify-content-end" id="searchBox" ></shared-search-box>
+
+<div class="grid" *ngIf="series.length > 1 && seriesByName.length < 1 ;else spinner">
+  <div class="col-2" *ngFor="let serie of series | paginate: { itemsPerPage: 12, currentPage: p } " >
+    <serie-card-list  [serie]="serie"  >
+
+    </serie-card-list>
+  </div>
+</div>
+
+<div *ngIf="seriesByName.length > 1 " class="grid">
+  <div class="col-12 xl:2 md:col-6 lg:col-2" *ngFor="let serie of seriesByName | paginate: { itemsPerPage: 12, currentPage: p }">
+    <serie-card-list  [serie]="serie" >
+    </serie-card-list>
+  </div>
+</div>
+
+<div class="col-12 flex justify-content-end">
+  <pagination-controls  previousLabel="Anterior" nextLabel="Siguiente" (pageChange)="p = $event"></pagination-controls>
+</div>
+
+</div>
+
+
+
